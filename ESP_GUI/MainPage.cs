@@ -15,8 +15,7 @@ namespace ESP_GUI
     public partial class MainPage : Form
     {
         public decimal m_i_Input=0;
-        public String m_SelectedPort = null;
-        public String[] m_Ports = new String[] { };
+        public String m_SelectedPort;
 
         public MainPage()
         {
@@ -26,23 +25,22 @@ namespace ESP_GUI
             {
                 this.PortComboBox.Items.Clear();
                 this.m_SelectedPort = null;
-                this.m_Ports = new String[] { };
-                this.m_Ports = SerialPort.GetPortNames(); 
 
-                if (this.m_Ports.Length == 0)
+                String[] ports = SerialPort.GetPortNames(); 
+
+                if (ports.Length == 0)
                 {
                     this.PortComboBox.Text = "Cann't find any USB-Port";
                 }
                 else
                 {
                     // Display each port name to the console.
-                    this.PortComboBox.Text = "Cann't find any USB-Port";
-                    this.PortComboBox.Text = this.m_Ports[0];
-                    this.m_SelectedPort = this.m_Ports[0];
+                    this.PortComboBox.Text = ports[0];
+                    this.m_SelectedPort = ports[0];
                       
-                    foreach (string port in this.m_Ports)
+                    foreach (string p in ports)
                     {
-                        this.PortComboBox.Items.Add(port);
+                        this.PortComboBox.Items.Add(p);
                     }
                 }
             }
@@ -55,20 +53,7 @@ namespace ESP_GUI
         private void SendButton_Click(object sender, EventArgs e)
         {
             Console.WriteLine(this.m_i_Input.ToString());
-            this.Output.Text = m_i_Input.ToString();
-
-            // Get a list of serial port names.
-            string[] ports = SerialPort.GetPortNames();
-
-            Console.WriteLine("The following serial ports were found:");
-
-            // Display each port name to the console.
-            foreach (string port in ports)
-            {
-                Console.WriteLine(port);
-            }
-
-            Console.ReadLine();
+            Console.WriteLine(this.m_SelectedPort); 
         }
 
         private void InputNrUpDown1_ValueChanged(object sender, EventArgs e)
@@ -78,30 +63,30 @@ namespace ESP_GUI
 
         private void PortComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine("seleced"); 
+            ComboBox combo_box = (ComboBox)sender;
+            this.m_SelectedPort = (string)combo_box.SelectedItem;
         }
+
         private void PortComboBox_Click(object sender, EventArgs e)
         {
             try
             {
                 this.PortComboBox.Items.Clear();
                 this.m_SelectedPort = null;
-                this.m_Ports = new String[] { };
-                this.m_Ports = SerialPort.GetPortNames();
+                String[] ports = SerialPort.GetPortNames();
 
-                if (this.m_Ports.Length == 0)
+                if (ports.Length == 0)
                 {
                     this.PortComboBox.Text = "Cann't find any USB-Port";
                 }
                 else
                 { 
-                    this.PortComboBox.Text = "Cann't find any USB-Port";
-                    this.PortComboBox.Text = this.m_Ports[0];
-                    this.m_SelectedPort = this.m_Ports[0];
+                    this.PortComboBox.Text = ports[0];
+                    this.m_SelectedPort = ports[0];
 
-                    foreach (string port in this.m_Ports)
+                    foreach (string p in ports)
                     {
-                        this.PortComboBox.Items.Add(port);
+                        this.PortComboBox.Items.Add(p);
                     }
                 }
             }

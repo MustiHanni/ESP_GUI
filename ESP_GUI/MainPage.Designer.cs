@@ -32,7 +32,6 @@
             this.SendButton = new System.Windows.Forms.Button();
             this.InputLabel = new System.Windows.Forms.Label();
             this.InputNrUpDown = new System.Windows.Forms.NumericUpDown();
-            this.Output = new System.Windows.Forms.Label();
             this.PortLabel = new System.Windows.Forms.Label();
             this.PortComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.InputNrUpDown)).BeginInit();
@@ -66,15 +65,6 @@
             this.InputNrUpDown.TabIndex = 2;
             this.InputNrUpDown.ValueChanged += new System.EventHandler(this.InputNrUpDown1_ValueChanged);
             // 
-            // Output
-            // 
-            this.Output.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Output.Location = new System.Drawing.Point(426, 192);
-            this.Output.Name = "Output";
-            this.Output.Size = new System.Drawing.Size(100, 41);
-            this.Output.TabIndex = 3;
-            this.Output.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // PortLabel
             // 
             this.PortLabel.AutoSize = true;
@@ -104,7 +94,6 @@
             this.ClientSize = new System.Drawing.Size(538, 289);
             this.Controls.Add(this.PortComboBox);
             this.Controls.Add(this.PortLabel);
-            this.Controls.Add(this.Output);
             this.Controls.Add(this.InputNrUpDown);
             this.Controls.Add(this.InputLabel);
             this.Controls.Add(this.SendButton);
@@ -122,7 +111,6 @@
         private System.Windows.Forms.Button SendButton;
         private System.Windows.Forms.Label InputLabel;
         private System.Windows.Forms.NumericUpDown InputNrUpDown;
-        private System.Windows.Forms.Label Output;
         private System.Windows.Forms.Label PortLabel;
         private System.Windows.Forms.ComboBox PortComboBox;
     }
