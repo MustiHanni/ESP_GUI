@@ -14,7 +14,13 @@ namespace ESP_GUI
 {
     public partial class MainPage : Form
     {
-        public decimal m_i_Input=0;
+        public enum HeaderType : byte { MOVE, READ, LEFT, RIGHT, STOP, RESET, SPEED };
+        public static int HEADER_SIZE = 1;
+        public static int PAYLOAD_SIZE = 8;
+        public byte[] m_msgHeader = new byte[HEADER_SIZE];
+        public byte[] m_msgPayload = new byte[PAYLOAD_SIZE];
+        public decimal m_MoveSteps = 0;
+        public decimal m_Speed = 0;
         public String m_SelectedPort;
 
         public MainPage()
@@ -52,13 +58,20 @@ namespace ESP_GUI
 
         private void SendButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(this.m_i_Input.ToString());
-            Console.WriteLine(this.m_SelectedPort); 
+            Console.WriteLine(this.m_MoveSteps.ToString());
+            Console.WriteLine(this.m_SelectedPort);
+
+
+            byte[] output_stream = new byte[ HEADER_SIZE + PAYLOAD_SIZE];
+            Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
+            Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
+            //this.OutputLabel.Text = BitConverter.ToString(output_stream).Replace("-", "");
+            this.OutputLabel.Text = BitConverter.ToString(output_stream);
         }
 
-        private void InputNrUpDown1_ValueChanged(object sender, EventArgs e)
+        private void MoveStepInputNrUpDown_ValueChanged(object sender, EventArgs e)
         {
-            m_i_Input = InputNrUpDown.Value;
+            this.m_MoveSteps = MoveToInputNrUpDown.Value;
         }
 
         private void PortComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,6 +107,69 @@ namespace ESP_GUI
             {
                 Console.WriteLine(ex.Message);
             }
+        }
+
+        private void MoveButton_Click(object sender, EventArgs e)
+        {
+            this.m_msgHeader = new byte[] { (byte)HeaderType.MOVE };
+            try
+            {
+                this.m_msgPayload = BitConverter.GetBytes((double)this.m_MoveSteps);
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException: Cannot convert {0}", this.m_Speed);
+            }
+            //this.m_msgPayload = new byte[]{0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11, 0x11};
+        }
+
+        private void ReadCounterButton_Click(object sender, EventArgs e)
+        {
+            this.m_msgHeader = new byte[] { (byte)HeaderType.READ };
+            this.m_msgPayload = new byte[8];
+        }
+
+        private void LeftButton_Click(object sender, EventArgs e)
+        {
+            this.m_msgHeader = new byte[] { (byte)HeaderType.LEFT };
+            this.m_msgPayload = new byte[8];
+        }
+
+        private void RightButton_Click(object sender, EventArgs e)
+        {
+            this.m_msgHeader = new byte[] { (byte)HeaderType.RIGHT };
+            this.m_msgPayload = new byte[8];
+        }
+
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+            this.m_msgHeader = new byte[] { (byte)HeaderType.STOP };
+            this.m_msgPayload = new byte[8];
+        }
+
+        private void ResetCounterButton_Click(object sender, EventArgs e)
+        { 
+            this.m_msgHeader = new byte[] { (byte)HeaderType.RESET };
+            this.m_msgPayload = new byte[8];
+    }
+
+        private void SpeedButton_Click(object sender, EventArgs e)
+        {
+            this.m_msgHeader = new byte[] { (byte)HeaderType.SPEED };
+            try
+            {                
+                this.m_msgPayload = BitConverter.GetBytes((double)this.m_Speed);  
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException: Cannot convert {0}",this.m_Speed);
+            }
+             //= new byte[] { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
+        }
+
+        private void SpeedInputNrUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            this.m_Speed = this.SpeedInputNrUpDown1.Value;
         }
     }
 }
