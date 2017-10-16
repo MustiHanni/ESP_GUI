@@ -75,6 +75,7 @@
             // 
             this.MoveToInputNrUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MoveToInputNrUpDown.Enabled = false;
+            this.MoveToInputNrUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MoveToInputNrUpDown.Location = new System.Drawing.Point(3, 3);
             this.MoveToInputNrUpDown.Maximum = new decimal(new int[] {
             -1,
@@ -87,9 +88,10 @@
             0,
             -2147483648});
             this.MoveToInputNrUpDown.Name = "MoveToInputNrUpDown";
-            this.MoveToInputNrUpDown.Size = new System.Drawing.Size(376, 20);
+            this.MoveToInputNrUpDown.Size = new System.Drawing.Size(364, 26);
             this.MoveToInputNrUpDown.TabIndex = 2;
             this.MoveToInputNrUpDown.Tag = "kick";
+            this.MoveToInputNrUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.MoveToInputNrUpDown.ValueChanged += new System.EventHandler(this.MoveStepInputNrUpDown_ValueChanged);
             // 
             // PortLabel
@@ -106,11 +108,11 @@
             // PortComboBox
             // 
             this.PortComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortComboBox.FormattingEnabled = true;
             this.PortComboBox.Location = new System.Drawing.Point(3, 24);
             this.PortComboBox.Name = "PortComboBox";
-            this.PortComboBox.Size = new System.Drawing.Size(409, 21);
+            this.PortComboBox.Size = new System.Drawing.Size(409, 24);
             this.PortComboBox.TabIndex = 5;
             this.PortComboBox.SelectedIndexChanged += new System.EventHandler(this.PortComboBox_SelectedIndexChanged);
             this.PortComboBox.Click += new System.EventHandler(this.PortComboBox_Click);
@@ -119,6 +121,7 @@
             // 
             this.SpeedInputNrUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SpeedInputNrUpDown.Enabled = false;
+            this.SpeedInputNrUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SpeedInputNrUpDown.Location = new System.Drawing.Point(3, 153);
             this.SpeedInputNrUpDown.Maximum = new decimal(new int[] {
             15000,
@@ -126,9 +129,10 @@
             0,
             0});
             this.SpeedInputNrUpDown.Name = "SpeedInputNrUpDown";
-            this.SpeedInputNrUpDown.Size = new System.Drawing.Size(376, 20);
+            this.SpeedInputNrUpDown.Size = new System.Drawing.Size(364, 26);
             this.SpeedInputNrUpDown.TabIndex = 15;
             this.SpeedInputNrUpDown.TabStop = false;
+            this.SpeedInputNrUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.SpeedInputNrUpDown.ValueChanged += new System.EventHandler(this.SpeedInputNrUpDown_ValueChanged);
             // 
             // OutputLabel
@@ -149,7 +153,7 @@
             this.MoveToCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MoveToCheckBox.Location = new System.Drawing.Point(3, 3);
             this.MoveToCheckBox.Name = "MoveToCheckBox";
-            this.MoveToCheckBox.Size = new System.Drawing.Size(122, 24);
+            this.MoveToCheckBox.Size = new System.Drawing.Size(134, 24);
             this.MoveToCheckBox.TabIndex = 17;
             this.MoveToCheckBox.Text = "Move To";
             this.MoveToCheckBox.UseVisualStyleBackColor = false;
@@ -162,7 +166,7 @@
             this.ReadCounterCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReadCounterCheckBox.Location = new System.Drawing.Point(3, 33);
             this.ReadCounterCheckBox.Name = "ReadCounterCheckBox";
-            this.ReadCounterCheckBox.Size = new System.Drawing.Size(122, 24);
+            this.ReadCounterCheckBox.Size = new System.Drawing.Size(134, 24);
             this.ReadCounterCheckBox.TabIndex = 18;
             this.ReadCounterCheckBox.Text = "Read Counter";
             this.ReadCounterCheckBox.UseVisualStyleBackColor = false;
@@ -175,7 +179,7 @@
             this.LefCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LefCheckBox.Location = new System.Drawing.Point(3, 63);
             this.LefCheckBox.Name = "LefCheckBox";
-            this.LefCheckBox.Size = new System.Drawing.Size(122, 24);
+            this.LefCheckBox.Size = new System.Drawing.Size(134, 24);
             this.LefCheckBox.TabIndex = 19;
             this.LefCheckBox.Text = "Left";
             this.LefCheckBox.UseVisualStyleBackColor = false;
@@ -188,7 +192,7 @@
             this.StopCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StopCheckBox.Location = new System.Drawing.Point(3, 93);
             this.StopCheckBox.Name = "StopCheckBox";
-            this.StopCheckBox.Size = new System.Drawing.Size(122, 24);
+            this.StopCheckBox.Size = new System.Drawing.Size(134, 24);
             this.StopCheckBox.TabIndex = 20;
             this.StopCheckBox.Text = "Stop";
             this.StopCheckBox.UseVisualStyleBackColor = false;
@@ -201,7 +205,7 @@
             this.ResetCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetCheckBox.Location = new System.Drawing.Point(3, 123);
             this.ResetCheckBox.Name = "ResetCheckBox";
-            this.ResetCheckBox.Size = new System.Drawing.Size(122, 24);
+            this.ResetCheckBox.Size = new System.Drawing.Size(134, 24);
             this.ResetCheckBox.TabIndex = 21;
             this.ResetCheckBox.Text = "Reset Counter";
             this.ResetCheckBox.UseVisualStyleBackColor = false;
@@ -214,7 +218,7 @@
             this.SpeedCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SpeedCheckBox.Location = new System.Drawing.Point(3, 153);
             this.SpeedCheckBox.Name = "SpeedCheckBox";
-            this.SpeedCheckBox.Size = new System.Drawing.Size(122, 24);
+            this.SpeedCheckBox.Size = new System.Drawing.Size(134, 24);
             this.SpeedCheckBox.TabIndex = 22;
             this.SpeedCheckBox.Text = "Set Speed";
             this.SpeedCheckBox.UseVisualStyleBackColor = false;
@@ -227,7 +231,7 @@
             this.RightCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RightCheckBox.Location = new System.Drawing.Point(3, 63);
             this.RightCheckBox.Name = "RightCheckBox";
-            this.RightCheckBox.Size = new System.Drawing.Size(376, 24);
+            this.RightCheckBox.Size = new System.Drawing.Size(364, 24);
             this.RightCheckBox.TabIndex = 23;
             this.RightCheckBox.Text = "Right";
             this.RightCheckBox.UseVisualStyleBackColor = false;
@@ -252,8 +256,8 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.86207F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.13793F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.96935F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.03065F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -285,7 +289,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(128, 183);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(140, 183);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel4
@@ -296,7 +300,7 @@
             this.tableLayoutPanel4.Controls.Add(this.RightCheckBox, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.SpeedInputNrUpDown, 0, 5);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(137, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(149, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 7;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -306,7 +310,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(382, 183);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(370, 183);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // tableLayoutPanel5
