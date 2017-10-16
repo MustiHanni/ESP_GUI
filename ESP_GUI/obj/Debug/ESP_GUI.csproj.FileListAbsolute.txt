@@ -7,4 +7,3 @@ C:\Repos\ESP_GUI\ESP_GUI\obj\Debug\ESP_GUI.csproj.GenerateResource.Cache
 C:\Repos\ESP_GUI\ESP_GUI\obj\Debug\ESP_GUI.csproj.CoreCompileInputs.cache
 C:\Repos\ESP_GUI\ESP_GUI\obj\Debug\ESP_GUI.exe
 C:\Repos\ESP_GUI\ESP_GUI\obj\Debug\ESP_GUI.pdb
-C:\Repos\ESP_GUI\ESP_GUI\obj\Debug\ESP_GUI.csprojResolveAssemblyReference.cache

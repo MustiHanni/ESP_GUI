@@ -34,25 +34,26 @@
             this.MoveToInputNrUpDown = new System.Windows.Forms.NumericUpDown();
             this.PortLabel = new System.Windows.Forms.Label();
             this.PortComboBox = new System.Windows.Forms.ComboBox();
-            this.MoveButton = new System.Windows.Forms.Button();
-            this.ReadCounterButton = new System.Windows.Forms.Button();
-            this.LeftButton = new System.Windows.Forms.Button();
-            this.RightButton = new System.Windows.Forms.Button();
-            this.StopButton = new System.Windows.Forms.Button();
-            this.ResetCounterButton = new System.Windows.Forms.Button();
-            this.SpeedButton = new System.Windows.Forms.Button();
             this.StopLabel = new System.Windows.Forms.Label();
             this.ResetCounterLabel = new System.Windows.Forms.Label();
-            this.SpeedInputNrUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.SpeedInputNrUpDown = new System.Windows.Forms.NumericUpDown();
             this.OutputLabel = new System.Windows.Forms.Label();
+            this.MoveToCheckBox = new System.Windows.Forms.CheckBox();
+            this.ReadCounterCheckBox = new System.Windows.Forms.CheckBox();
+            this.LefCheckBox = new System.Windows.Forms.CheckBox();
+            this.StopCheckBox = new System.Windows.Forms.CheckBox();
+            this.ResetCheckBox = new System.Windows.Forms.CheckBox();
+            this.SpeedCheckBox = new System.Windows.Forms.CheckBox();
+            this.RightCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.MoveToInputNrUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SpeedInputNrUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpeedInputNrUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // SendButton
             // 
+            this.SendButton.Enabled = false;
             this.SendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendButton.Location = new System.Drawing.Point(385, 117);
+            this.SendButton.Location = new System.Drawing.Point(314, 93);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(108, 286);
             this.SendButton.TabIndex = 0;
@@ -63,7 +64,7 @@
             // ReadCounterLabel
             // 
             this.ReadCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReadCounterLabel.Location = new System.Drawing.Point(185, 80);
+            this.ReadCounterLabel.Location = new System.Drawing.Point(130, 66);
             this.ReadCounterLabel.Name = "ReadCounterLabel";
             this.ReadCounterLabel.Size = new System.Drawing.Size(158, 53);
             this.ReadCounterLabel.TabIndex = 1;
@@ -72,7 +73,8 @@
             // 
             // MoveToInputNrUpDown
             // 
-            this.MoveToInputNrUpDown.Location = new System.Drawing.Point(189, 30);
+            this.MoveToInputNrUpDown.Enabled = false;
+            this.MoveToInputNrUpDown.Location = new System.Drawing.Point(134, 23);
             this.MoveToInputNrUpDown.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -91,7 +93,7 @@
             // PortLabel
             // 
             this.PortLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PortLabel.Location = new System.Drawing.Point(381, 9);
+            this.PortLabel.Location = new System.Drawing.Point(310, 11);
             this.PortLabel.Name = "PortLabel";
             this.PortLabel.Size = new System.Drawing.Size(112, 38);
             this.PortLabel.TabIndex = 4;
@@ -102,87 +104,17 @@
             // 
             this.PortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortComboBox.FormattingEnabled = true;
-            this.PortComboBox.Location = new System.Drawing.Point(385, 80);
+            this.PortComboBox.Location = new System.Drawing.Point(314, 54);
             this.PortComboBox.Name = "PortComboBox";
             this.PortComboBox.Size = new System.Drawing.Size(108, 21);
             this.PortComboBox.TabIndex = 5;
             this.PortComboBox.SelectedIndexChanged += new System.EventHandler(this.PortComboBox_SelectedIndexChanged);
             this.PortComboBox.Click += new System.EventHandler(this.PortComboBox_Click);
             // 
-            // MoveButton
-            // 
-            this.MoveButton.Location = new System.Drawing.Point(12, 12);
-            this.MoveButton.Name = "MoveButton";
-            this.MoveButton.Size = new System.Drawing.Size(154, 53);
-            this.MoveButton.TabIndex = 6;
-            this.MoveButton.Text = "Move To";
-            this.MoveButton.UseVisualStyleBackColor = true;
-            this.MoveButton.Click += new System.EventHandler(this.MoveButton_Click);
-            // 
-            // ReadCounterButton
-            // 
-            this.ReadCounterButton.Location = new System.Drawing.Point(12, 80);
-            this.ReadCounterButton.Name = "ReadCounterButton";
-            this.ReadCounterButton.Size = new System.Drawing.Size(154, 53);
-            this.ReadCounterButton.TabIndex = 7;
-            this.ReadCounterButton.Text = "Read Counter";
-            this.ReadCounterButton.UseVisualStyleBackColor = true;
-            this.ReadCounterButton.Click += new System.EventHandler(this.ReadCounterButton_Click);
-            // 
-            // LeftButton
-            // 
-            this.LeftButton.Location = new System.Drawing.Point(12, 143);
-            this.LeftButton.Name = "LeftButton";
-            this.LeftButton.Size = new System.Drawing.Size(154, 53);
-            this.LeftButton.TabIndex = 8;
-            this.LeftButton.Text = "Left";
-            this.LeftButton.UseVisualStyleBackColor = true;
-            this.LeftButton.Click += new System.EventHandler(this.LeftButton_Click);
-            // 
-            // RightButton
-            // 
-            this.RightButton.Location = new System.Drawing.Point(189, 143);
-            this.RightButton.Name = "RightButton";
-            this.RightButton.Size = new System.Drawing.Size(154, 53);
-            this.RightButton.TabIndex = 9;
-            this.RightButton.Text = "Right";
-            this.RightButton.UseVisualStyleBackColor = true;
-            this.RightButton.Click += new System.EventHandler(this.RightButton_Click);
-            // 
-            // StopButton
-            // 
-            this.StopButton.Location = new System.Drawing.Point(12, 213);
-            this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(154, 53);
-            this.StopButton.TabIndex = 10;
-            this.StopButton.Text = "Stop";
-            this.StopButton.UseVisualStyleBackColor = true;
-            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
-            // 
-            // ResetCounterButton
-            // 
-            this.ResetCounterButton.Location = new System.Drawing.Point(12, 281);
-            this.ResetCounterButton.Name = "ResetCounterButton";
-            this.ResetCounterButton.Size = new System.Drawing.Size(154, 53);
-            this.ResetCounterButton.TabIndex = 11;
-            this.ResetCounterButton.Text = "Reset Counter";
-            this.ResetCounterButton.UseVisualStyleBackColor = true;
-            this.ResetCounterButton.Click += new System.EventHandler(this.ResetCounterButton_Click);
-            // 
-            // SpeedButton
-            // 
-            this.SpeedButton.Location = new System.Drawing.Point(12, 350);
-            this.SpeedButton.Name = "SpeedButton";
-            this.SpeedButton.Size = new System.Drawing.Size(154, 53);
-            this.SpeedButton.TabIndex = 12;
-            this.SpeedButton.Text = "Set Speed";
-            this.SpeedButton.UseVisualStyleBackColor = true;
-            this.SpeedButton.Click += new System.EventHandler(this.SpeedButton_Click);
-            // 
             // StopLabel
             // 
             this.StopLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StopLabel.Location = new System.Drawing.Point(185, 213);
+            this.StopLabel.Location = new System.Drawing.Point(130, 181);
             this.StopLabel.Name = "StopLabel";
             this.StopLabel.Size = new System.Drawing.Size(158, 53);
             this.StopLabel.TabIndex = 13;
@@ -192,26 +124,27 @@
             // ResetCounterLabel
             // 
             this.ResetCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetCounterLabel.Location = new System.Drawing.Point(185, 281);
+            this.ResetCounterLabel.Location = new System.Drawing.Point(130, 237);
             this.ResetCounterLabel.Name = "ResetCounterLabel";
             this.ResetCounterLabel.Size = new System.Drawing.Size(158, 53);
             this.ResetCounterLabel.TabIndex = 14;
             this.ResetCounterLabel.Text = "Reset Counter ";
             this.ResetCounterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // SpeedInputNrUpDown1
+            // SpeedInputNrUpDown
             // 
-            this.SpeedInputNrUpDown1.Location = new System.Drawing.Point(189, 368);
-            this.SpeedInputNrUpDown1.Maximum = new decimal(new int[] {
+            this.SpeedInputNrUpDown.Enabled = false;
+            this.SpeedInputNrUpDown.Location = new System.Drawing.Point(134, 309);
+            this.SpeedInputNrUpDown.Maximum = new decimal(new int[] {
             15000,
             0,
             0,
             0});
-            this.SpeedInputNrUpDown1.Name = "SpeedInputNrUpDown1";
-            this.SpeedInputNrUpDown1.Size = new System.Drawing.Size(154, 20);
-            this.SpeedInputNrUpDown1.TabIndex = 15;
-            this.SpeedInputNrUpDown1.TabStop = false;
-            this.SpeedInputNrUpDown1.ValueChanged += new System.EventHandler(this.SpeedInputNrUpDown_ValueChanged);
+            this.SpeedInputNrUpDown.Name = "SpeedInputNrUpDown";
+            this.SpeedInputNrUpDown.Size = new System.Drawing.Size(154, 20);
+            this.SpeedInputNrUpDown.TabIndex = 15;
+            this.SpeedInputNrUpDown.TabStop = false;
+            this.SpeedInputNrUpDown.ValueChanged += new System.EventHandler(this.SpeedInputNrUpDown_ValueChanged);
             // 
             // OutputLabel
             // 
@@ -221,8 +154,85 @@
             this.OutputLabel.Name = "OutputLabel";
             this.OutputLabel.Size = new System.Drawing.Size(481, 53);
             this.OutputLabel.TabIndex = 16;
-            this.OutputLabel.Text = "Data Stream";
-            this.OutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.OutputLabel.Text = "XX-XX-XX-XX-XX-XX-XX-XX-XX"; 
+            this.OutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter; 
+            // 
+            // MoveToCheckBox
+            // 
+            this.MoveToCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
+            this.MoveToCheckBox.Location = new System.Drawing.Point(13, 13);
+            this.MoveToCheckBox.Name = "MoveToCheckBox";
+            this.MoveToCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.MoveToCheckBox.TabIndex = 17;
+            this.MoveToCheckBox.Text = "Move To";
+            this.MoveToCheckBox.UseVisualStyleBackColor = false;
+            this.MoveToCheckBox.CheckedChanged += new System.EventHandler(this.MoveToCheckBox_CheckedChanged);
+            // 
+            // ReadCounterCheckBox
+            // 
+            this.ReadCounterCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ReadCounterCheckBox.Location = new System.Drawing.Point(12, 69);
+            this.ReadCounterCheckBox.Name = "ReadCounterCheckBox";
+            this.ReadCounterCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.ReadCounterCheckBox.TabIndex = 18;
+            this.ReadCounterCheckBox.Text = "Read Counter";
+            this.ReadCounterCheckBox.UseVisualStyleBackColor = false;
+            this.ReadCounterCheckBox.CheckedChanged += new System.EventHandler(this.ReadCounterCheckBox_CheckedChanged);
+            // 
+            // LefCheckBox
+            // 
+            this.LefCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
+            this.LefCheckBox.Location = new System.Drawing.Point(13, 125);
+            this.LefCheckBox.Name = "LefCheckBox";
+            this.LefCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.LefCheckBox.TabIndex = 19;
+            this.LefCheckBox.Text = "Left";
+            this.LefCheckBox.UseVisualStyleBackColor = false;
+            this.LefCheckBox.CheckedChanged += new System.EventHandler(this.LefCheckBox_CheckedChanged);
+            // 
+            // StopCheckBox
+            // 
+            this.StopCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
+            this.StopCheckBox.Location = new System.Drawing.Point(12, 181);
+            this.StopCheckBox.Name = "StopCheckBox";
+            this.StopCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.StopCheckBox.TabIndex = 20;
+            this.StopCheckBox.Text = "Stop";
+            this.StopCheckBox.UseVisualStyleBackColor = false;
+            this.StopCheckBox.CheckedChanged += new System.EventHandler(this.StopCheckBox_CheckedChanged);
+            // 
+            // ResetCheckBox
+            // 
+            this.ResetCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
+            this.ResetCheckBox.Location = new System.Drawing.Point(12, 237);
+            this.ResetCheckBox.Name = "ResetCheckBox";
+            this.ResetCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.ResetCheckBox.TabIndex = 21;
+            this.ResetCheckBox.Text = "Reset Counter";
+            this.ResetCheckBox.UseVisualStyleBackColor = false;
+            this.ResetCheckBox.CheckedChanged += new System.EventHandler(this.ResetCheckBox_CheckedChanged);
+            // 
+            // SpeedCheckBox
+            // 
+            this.SpeedCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
+            this.SpeedCheckBox.Location = new System.Drawing.Point(12, 293);
+            this.SpeedCheckBox.Name = "SpeedCheckBox";
+            this.SpeedCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.SpeedCheckBox.TabIndex = 22;
+            this.SpeedCheckBox.Text = "Set Speed";
+            this.SpeedCheckBox.UseVisualStyleBackColor = false;
+            this.SpeedCheckBox.CheckedChanged += new System.EventHandler(this.SpeedCheckBox_CheckedChanged);
+            // 
+            // RightCheckBox
+            // 
+            this.RightCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
+            this.RightCheckBox.Location = new System.Drawing.Point(131, 125);
+            this.RightCheckBox.Name = "RightCheckBox";
+            this.RightCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.RightCheckBox.TabIndex = 23;
+            this.RightCheckBox.Text = "Right";
+            this.RightCheckBox.UseVisualStyleBackColor = false;
+            this.RightCheckBox.CheckedChanged += new System.EventHandler(this.RightCheckBox_CheckedChanged);
             // 
             // MainPage
             // 
@@ -230,18 +240,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(531, 488);
+            this.ClientSize = new System.Drawing.Size(765, 488);
+            this.Controls.Add(this.RightCheckBox);
+            this.Controls.Add(this.SpeedCheckBox);
+            this.Controls.Add(this.ResetCheckBox);
+            this.Controls.Add(this.StopCheckBox);
+            this.Controls.Add(this.LefCheckBox);
+            this.Controls.Add(this.ReadCounterCheckBox);
+            this.Controls.Add(this.MoveToCheckBox);
             this.Controls.Add(this.OutputLabel);
-            this.Controls.Add(this.SpeedInputNrUpDown1);
+            this.Controls.Add(this.SpeedInputNrUpDown);
             this.Controls.Add(this.ResetCounterLabel);
             this.Controls.Add(this.StopLabel);
-            this.Controls.Add(this.SpeedButton);
-            this.Controls.Add(this.ResetCounterButton);
-            this.Controls.Add(this.StopButton);
-            this.Controls.Add(this.RightButton);
-            this.Controls.Add(this.LeftButton);
-            this.Controls.Add(this.ReadCounterButton);
-            this.Controls.Add(this.MoveButton);
             this.Controls.Add(this.PortComboBox);
             this.Controls.Add(this.PortLabel);
             this.Controls.Add(this.MoveToInputNrUpDown);
@@ -251,7 +261,7 @@
             this.Name = "MainPage";
             this.Text = "Connect_ESP";
             ((System.ComponentModel.ISupportInitialize)(this.MoveToInputNrUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SpeedInputNrUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpeedInputNrUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,17 +273,17 @@
         private System.Windows.Forms.NumericUpDown MoveToInputNrUpDown;
         private System.Windows.Forms.Label PortLabel;
         private System.Windows.Forms.ComboBox PortComboBox;
-        private System.Windows.Forms.Button MoveButton;
-        private System.Windows.Forms.Button ReadCounterButton;
-        private System.Windows.Forms.Button LeftButton;
-        private System.Windows.Forms.Button RightButton;
-        private System.Windows.Forms.Button StopButton;
-        private System.Windows.Forms.Button ResetCounterButton;
-        private System.Windows.Forms.Button SpeedButton;
         private System.Windows.Forms.Label StopLabel;
         private System.Windows.Forms.Label ResetCounterLabel;
-        private System.Windows.Forms.NumericUpDown SpeedInputNrUpDown1;
+        private System.Windows.Forms.NumericUpDown SpeedInputNrUpDown;
         private System.Windows.Forms.Label OutputLabel;
+        private System.Windows.Forms.CheckBox MoveToCheckBox;
+        private System.Windows.Forms.CheckBox ReadCounterCheckBox;
+        private System.Windows.Forms.CheckBox LefCheckBox;
+        private System.Windows.Forms.CheckBox StopCheckBox;
+        private System.Windows.Forms.CheckBox ResetCheckBox;
+        private System.Windows.Forms.CheckBox SpeedCheckBox;
+        private System.Windows.Forms.CheckBox RightCheckBox;
     }
 }
 
