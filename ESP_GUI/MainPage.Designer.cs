@@ -30,12 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.SendButton = new System.Windows.Forms.Button();
-            this.ReadCounterLabel = new System.Windows.Forms.Label();
             this.MoveToInputNrUpDown = new System.Windows.Forms.NumericUpDown();
             this.PortLabel = new System.Windows.Forms.Label();
             this.PortComboBox = new System.Windows.Forms.ComboBox();
-            this.StopLabel = new System.Windows.Forms.Label();
-            this.ResetCounterLabel = new System.Windows.Forms.Label();
             this.SpeedInputNrUpDown = new System.Windows.Forms.NumericUpDown();
             this.OutputLabel = new System.Windows.Forms.Label();
             this.MoveToCheckBox = new System.Windows.Forms.CheckBox();
@@ -53,7 +50,7 @@
             // 
             this.SendButton.Enabled = false;
             this.SendButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SendButton.Location = new System.Drawing.Point(314, 93);
+            this.SendButton.Location = new System.Drawing.Point(385, 97);
             this.SendButton.Name = "SendButton";
             this.SendButton.Size = new System.Drawing.Size(108, 286);
             this.SendButton.TabIndex = 0;
@@ -61,39 +58,30 @@
             this.SendButton.UseVisualStyleBackColor = true;
             this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
             // 
-            // ReadCounterLabel
-            // 
-            this.ReadCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReadCounterLabel.Location = new System.Drawing.Point(130, 66);
-            this.ReadCounterLabel.Name = "ReadCounterLabel";
-            this.ReadCounterLabel.Size = new System.Drawing.Size(158, 53);
-            this.ReadCounterLabel.TabIndex = 1;
-            this.ReadCounterLabel.Text = "Read Counter";
-            this.ReadCounterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // MoveToInputNrUpDown
             // 
             this.MoveToInputNrUpDown.Enabled = false;
-            this.MoveToInputNrUpDown.Location = new System.Drawing.Point(134, 23);
+            this.MoveToInputNrUpDown.Location = new System.Drawing.Point(12, 58);
             this.MoveToInputNrUpDown.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            -1,
+            2147483647,
             0,
             0});
             this.MoveToInputNrUpDown.Minimum = new decimal(new int[] {
-            100000,
             0,
+            -2147483648,
             0,
             -2147483648});
             this.MoveToInputNrUpDown.Name = "MoveToInputNrUpDown";
             this.MoveToInputNrUpDown.Size = new System.Drawing.Size(154, 20);
             this.MoveToInputNrUpDown.TabIndex = 2;
+            this.MoveToInputNrUpDown.Tag = "kick";
             this.MoveToInputNrUpDown.ValueChanged += new System.EventHandler(this.MoveStepInputNrUpDown_ValueChanged);
             // 
             // PortLabel
             // 
             this.PortLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PortLabel.Location = new System.Drawing.Point(310, 11);
+            this.PortLabel.Location = new System.Drawing.Point(553, 28);
             this.PortLabel.Name = "PortLabel";
             this.PortLabel.Size = new System.Drawing.Size(112, 38);
             this.PortLabel.TabIndex = 4;
@@ -104,37 +92,17 @@
             // 
             this.PortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PortComboBox.FormattingEnabled = true;
-            this.PortComboBox.Location = new System.Drawing.Point(314, 54);
+            this.PortComboBox.Location = new System.Drawing.Point(233, 186);
             this.PortComboBox.Name = "PortComboBox";
             this.PortComboBox.Size = new System.Drawing.Size(108, 21);
             this.PortComboBox.TabIndex = 5;
             this.PortComboBox.SelectedIndexChanged += new System.EventHandler(this.PortComboBox_SelectedIndexChanged);
             this.PortComboBox.Click += new System.EventHandler(this.PortComboBox_Click);
             // 
-            // StopLabel
-            // 
-            this.StopLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StopLabel.Location = new System.Drawing.Point(130, 181);
-            this.StopLabel.Name = "StopLabel";
-            this.StopLabel.Size = new System.Drawing.Size(158, 53);
-            this.StopLabel.TabIndex = 13;
-            this.StopLabel.Text = "Stop";
-            this.StopLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ResetCounterLabel
-            // 
-            this.ResetCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetCounterLabel.Location = new System.Drawing.Point(130, 237);
-            this.ResetCounterLabel.Name = "ResetCounterLabel";
-            this.ResetCounterLabel.Size = new System.Drawing.Size(158, 53);
-            this.ResetCounterLabel.TabIndex = 14;
-            this.ResetCounterLabel.Text = "Reset Counter ";
-            this.ResetCounterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // SpeedInputNrUpDown
             // 
             this.SpeedInputNrUpDown.Enabled = false;
-            this.SpeedInputNrUpDown.Location = new System.Drawing.Point(134, 309);
+            this.SpeedInputNrUpDown.Location = new System.Drawing.Point(12, 314);
             this.SpeedInputNrUpDown.Maximum = new decimal(new int[] {
             15000,
             0,
@@ -150,19 +118,19 @@
             // 
             this.OutputLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.OutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OutputLabel.Location = new System.Drawing.Point(12, 426);
+            this.OutputLabel.Location = new System.Drawing.Point(110, 426);
             this.OutputLabel.Name = "OutputLabel";
             this.OutputLabel.Size = new System.Drawing.Size(481, 53);
             this.OutputLabel.TabIndex = 16;
-            this.OutputLabel.Text = "XX-XX-XX-XX-XX-XX-XX-XX-XX"; 
-            this.OutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter; 
+            this.OutputLabel.Text = "XX-XX-XX-XX-XX-XX-XX-XX-XX";
+            this.OutputLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MoveToCheckBox
             // 
-            this.MoveToCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
-            this.MoveToCheckBox.Location = new System.Drawing.Point(13, 13);
+            this.MoveToCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.MoveToCheckBox.Location = new System.Drawing.Point(12, 12);
             this.MoveToCheckBox.Name = "MoveToCheckBox";
-            this.MoveToCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.MoveToCheckBox.Size = new System.Drawing.Size(100, 40);
             this.MoveToCheckBox.TabIndex = 17;
             this.MoveToCheckBox.Text = "Move To";
             this.MoveToCheckBox.UseVisualStyleBackColor = false;
@@ -170,10 +138,10 @@
             // 
             // ReadCounterCheckBox
             // 
-            this.ReadCounterCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ReadCounterCheckBox.Location = new System.Drawing.Point(12, 69);
+            this.ReadCounterCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.ReadCounterCheckBox.Location = new System.Drawing.Point(12, 84);
             this.ReadCounterCheckBox.Name = "ReadCounterCheckBox";
-            this.ReadCounterCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.ReadCounterCheckBox.Size = new System.Drawing.Size(100, 40);
             this.ReadCounterCheckBox.TabIndex = 18;
             this.ReadCounterCheckBox.Text = "Read Counter";
             this.ReadCounterCheckBox.UseVisualStyleBackColor = false;
@@ -181,10 +149,10 @@
             // 
             // LefCheckBox
             // 
-            this.LefCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
-            this.LefCheckBox.Location = new System.Drawing.Point(13, 125);
+            this.LefCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.LefCheckBox.Location = new System.Drawing.Point(12, 130);
             this.LefCheckBox.Name = "LefCheckBox";
-            this.LefCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.LefCheckBox.Size = new System.Drawing.Size(100, 40);
             this.LefCheckBox.TabIndex = 19;
             this.LefCheckBox.Text = "Left";
             this.LefCheckBox.UseVisualStyleBackColor = false;
@@ -192,10 +160,10 @@
             // 
             // StopCheckBox
             // 
-            this.StopCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
-            this.StopCheckBox.Location = new System.Drawing.Point(12, 181);
+            this.StopCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.StopCheckBox.Location = new System.Drawing.Point(12, 176);
             this.StopCheckBox.Name = "StopCheckBox";
-            this.StopCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.StopCheckBox.Size = new System.Drawing.Size(100, 40);
             this.StopCheckBox.TabIndex = 20;
             this.StopCheckBox.Text = "Stop";
             this.StopCheckBox.UseVisualStyleBackColor = false;
@@ -203,10 +171,10 @@
             // 
             // ResetCheckBox
             // 
-            this.ResetCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ResetCheckBox.Location = new System.Drawing.Point(12, 237);
+            this.ResetCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.ResetCheckBox.Location = new System.Drawing.Point(12, 222);
             this.ResetCheckBox.Name = "ResetCheckBox";
-            this.ResetCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.ResetCheckBox.Size = new System.Drawing.Size(100, 40);
             this.ResetCheckBox.TabIndex = 21;
             this.ResetCheckBox.Text = "Reset Counter";
             this.ResetCheckBox.UseVisualStyleBackColor = false;
@@ -214,10 +182,10 @@
             // 
             // SpeedCheckBox
             // 
-            this.SpeedCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
-            this.SpeedCheckBox.Location = new System.Drawing.Point(12, 293);
+            this.SpeedCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.SpeedCheckBox.Location = new System.Drawing.Point(12, 268);
             this.SpeedCheckBox.Name = "SpeedCheckBox";
-            this.SpeedCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.SpeedCheckBox.Size = new System.Drawing.Size(100, 40);
             this.SpeedCheckBox.TabIndex = 22;
             this.SpeedCheckBox.Text = "Set Speed";
             this.SpeedCheckBox.UseVisualStyleBackColor = false;
@@ -225,10 +193,10 @@
             // 
             // RightCheckBox
             // 
-            this.RightCheckBox.BackColor = System.Drawing.SystemColors.Highlight;
-            this.RightCheckBox.Location = new System.Drawing.Point(131, 125);
+            this.RightCheckBox.BackColor = System.Drawing.SystemColors.Control;
+            this.RightCheckBox.Location = new System.Drawing.Point(118, 130);
             this.RightCheckBox.Name = "RightCheckBox";
-            this.RightCheckBox.Size = new System.Drawing.Size(112, 50);
+            this.RightCheckBox.Size = new System.Drawing.Size(100, 40);
             this.RightCheckBox.TabIndex = 23;
             this.RightCheckBox.Text = "Right";
             this.RightCheckBox.UseVisualStyleBackColor = false;
@@ -240,7 +208,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.ClientSize = new System.Drawing.Size(765, 488);
+            this.ClientSize = new System.Drawing.Size(960, 488);
             this.Controls.Add(this.RightCheckBox);
             this.Controls.Add(this.SpeedCheckBox);
             this.Controls.Add(this.ResetCheckBox);
@@ -250,12 +218,9 @@
             this.Controls.Add(this.MoveToCheckBox);
             this.Controls.Add(this.OutputLabel);
             this.Controls.Add(this.SpeedInputNrUpDown);
-            this.Controls.Add(this.ResetCounterLabel);
-            this.Controls.Add(this.StopLabel);
             this.Controls.Add(this.PortComboBox);
             this.Controls.Add(this.PortLabel);
             this.Controls.Add(this.MoveToInputNrUpDown);
-            this.Controls.Add(this.ReadCounterLabel);
             this.Controls.Add(this.SendButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainPage";
@@ -269,12 +234,9 @@
         #endregion
 
         private System.Windows.Forms.Button SendButton;
-        private System.Windows.Forms.Label ReadCounterLabel;
         private System.Windows.Forms.NumericUpDown MoveToInputNrUpDown;
         private System.Windows.Forms.Label PortLabel;
         private System.Windows.Forms.ComboBox PortComboBox;
-        private System.Windows.Forms.Label StopLabel;
-        private System.Windows.Forms.Label ResetCounterLabel;
         private System.Windows.Forms.NumericUpDown SpeedInputNrUpDown;
         private System.Windows.Forms.Label OutputLabel;
         private System.Windows.Forms.CheckBox MoveToCheckBox;

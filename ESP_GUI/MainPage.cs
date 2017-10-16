@@ -17,7 +17,7 @@ namespace ESP_GUI
         public enum HeaderType : byte { MOVE, READ, LEFT, RIGHT, STOP, RESET, SPEED };
         public static int HEADER_SIZE = 1;
         public static int PAYLOAD_SIZE = 8;
-        public byte[] m_msgHeader = new byte[HEADER_SIZE];
+        public byte[] m_msgHeader = new byte[HEADER_SIZE]; 
         public byte[] m_msgPayload = new byte[PAYLOAD_SIZE];
         public long m_MoveSteps = 0;
         public short m_Speed = 0;
@@ -103,7 +103,10 @@ namespace ESP_GUI
             }
 
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
@@ -149,14 +152,17 @@ namespace ESP_GUI
             this.m_Speed = (short)this.SpeedInputNrUpDown.Value;
             try
             {
-                this.m_msgPayload = BitConverter.GetBytes((long)this.m_Speed); //= new byte[] { 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55 };
+                this.m_msgPayload = BitConverter.GetBytes((long)this.m_Speed); 
             }
             catch (OverflowException)
             {
                 Console.WriteLine("OverflowException: Cannot convert: ", this.m_Speed);
             }
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
@@ -179,15 +185,21 @@ namespace ESP_GUI
             {
                 this.SendButton.Enabled = false;
                 this.MoveToInputNrUpDown.Enabled = false;
+                this.MoveToInputNrUpDown.Value = 0;
                 this.ReadCounterCheckBox.Enabled = true;
                 this.LefCheckBox.Enabled = true;
                 this.StopCheckBox.Enabled = true;
                 this.SpeedCheckBox.Enabled = true;
                 this.ResetCheckBox.Enabled = true;
-                this.RightCheckBox.Enabled = true;
+                this.RightCheckBox.Enabled = true; 
             }
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            this.m_msgHeader = new byte[] { (byte)HeaderType.MOVE };
+            this.m_msgPayload = new byte[PAYLOAD_SIZE];
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
@@ -216,9 +228,12 @@ namespace ESP_GUI
                 this.RightCheckBox.Enabled = true;
             }
             this.m_msgHeader = new byte[] { (byte)HeaderType.READ };
-            this.m_msgPayload = new byte[8];
+            this.m_msgPayload = new byte[PAYLOAD_SIZE]; 
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
@@ -247,9 +262,12 @@ namespace ESP_GUI
                 this.RightCheckBox.Enabled = true;
             }
             this.m_msgHeader = new byte[] { (byte)HeaderType.LEFT };
-            this.m_msgPayload = new byte[8];
+            this.m_msgPayload = new byte[PAYLOAD_SIZE];
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
@@ -278,9 +296,12 @@ namespace ESP_GUI
                 this.RightCheckBox.Enabled = true;
             }
             this.m_msgHeader = new byte[] { (byte)HeaderType.STOP };
-            this.m_msgPayload = new byte[8];
+            this.m_msgPayload = new byte[PAYLOAD_SIZE];
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
@@ -309,9 +330,12 @@ namespace ESP_GUI
                 this.RightCheckBox.Enabled = true;
             }
             this.m_msgHeader = new byte[] { (byte)HeaderType.RESET };
-            this.m_msgPayload = new byte[8];
+            this.m_msgPayload = new byte[PAYLOAD_SIZE];
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
@@ -334,6 +358,7 @@ namespace ESP_GUI
             {
                 this.SendButton.Enabled = false;
                 this.SpeedInputNrUpDown.Enabled = false;
+                this.SpeedInputNrUpDown.Value = 0;
                 this.MoveToCheckBox.Enabled = true;
                 this.ReadCounterCheckBox.Enabled = true;
                 this.LefCheckBox.Enabled = true;
@@ -343,7 +368,10 @@ namespace ESP_GUI
             }
             this.m_msgHeader = new byte[] { (byte)HeaderType.SPEED };
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
@@ -372,13 +400,14 @@ namespace ESP_GUI
                 this.SpeedCheckBox.Enabled = true;
             }
             this.m_msgHeader = new byte[] { (byte)HeaderType.RIGHT };
-            this.m_msgPayload = new byte[8];
+            this.m_msgPayload = new byte[PAYLOAD_SIZE];
             byte[] output_stream = new byte[HEADER_SIZE + PAYLOAD_SIZE];
-            Array.Reverse(this.m_msgPayload);
+            if (BitConverter.IsLittleEndian) {
+                Array.Reverse(this.m_msgPayload);
+            }
             Buffer.BlockCopy(this.m_msgHeader, 0, output_stream, 0, HEADER_SIZE);
             Buffer.BlockCopy(this.m_msgPayload, 0, output_stream, HEADER_SIZE, PAYLOAD_SIZE);
             this.OutputLabel.Text = BitConverter.ToString(output_stream);
-        }
-         
+        }         
     }
 }
